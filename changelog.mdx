@@ -1,0 +1,140 @@
+---
+title: Changelog
+description: Track the latest updates, features, and improvements in ATSystems.
+---
+
+## Recent Updates
+
+Stay informed about new features, bug fixes, and improvements that enhance your ad traffic optimization and monetization workflows.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added integration with Google Ads API, enabling direct bidding on high-volume traffic sources.
+- Introduced real-time bid adjustment based on machine learning predictions for RPM optimization.
+- New dashboard widget for visualizing traffic quality scores across all integrated networks.
+
+## Improvements
+
+- Enhanced API normalization to handle updated Facebook Ads endpoints without configuration changes.
+- Reduced decision latency by 40% through optimized infrastructure caching.
+
+## Bug Fixes
+
+- Fixed intermittent failures in bid bundle redistribution during peak hours.
+- Resolved data sync issues with Taboola network reporting.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Support for programmatic bidding bundles, allowing dynamic grouping of campaigns by geography.
+- Automated blacklisting of underperforming traffic sources based on configurable thresholds.
+
+## Bug Fixes
+
+- Corrected rate limiting errors when querying multiple ad networks simultaneously.
+- Patched memory leaks in long-running optimization loops.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Renamed `bidOptimizer` config to `trafficOptimizer` for consistency. Update your configs accordingly.
+
+```javascript
+// Old
+{
+  bidOptimizer: { enabled: true }
+}
+
+// New
+{
+  trafficOptimizer: { enabled: true }
+}
+```
+
+## New Features
+
+- Core integration with 10 major ad networks including Google, Facebook, and Outbrain.
+- Unified data model for bids, impressions, and revenue across all sources.
+- Initial real-time decision engine for automated buying and selling.
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade ATSystems smoothly and leverage the latest features.
+
+<Steps>
+  <Step title="Backup Configuration" icon="database">
+
+    Save your current setup to avoid data loss.
+
+    ```bash
+    cp ~/.atsystems/config.json ~/.atsystems/config.json.bak
+    ```
+
+  </Step>
+  <Step title="Update Package" icon="download">
+
+    <CodeGroup tabs="npm,yarn">
+      ````bash
+      npm install atsystems@latest
+      ````
+      ````bash
+      yarn add atsystems@latest
+      ````
+    </CodeGroup>
+
+  </Step>
+  <Step title="Review Breaking Changes" icon="alert-triangle">
+
+    Check the `v1.0.0` section above for config renames. Migrate using the provided examples.
+
+    <Callout kind="alert">
+      Test in staging before production deployment to validate bid decisions.
+    </Callout>
+
+  </Step>
+  <Step title="Restart Service" icon="refresh-cw">
+
+    ```bash
+    atsystems restart --env=production
+    ```
+
+    Monitor logs for errors: `atsystems logs --tail=100`.
+
+  </Step>
+</Steps>
+
+## Version Summary
+
+| Version | Date       | Key Changes                  | Tags             |
+|---------|------------|------------------------------|------------------|
+| v1.2.0  | 2024-10-15 | Google Ads, ML bidding       | feature, improvement |
+| v1.1.0  | 2024-09-20 | Bid bundles, blacklisting    | feature, bugfix  |
+| v1.0.0  | 2024-08-10 | Core engine, breaking config | breaking, feature|
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Get started with your first optimized campaign.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your API integrations.
+  </Card>
+  <Card title="Configuration" icon="settings" href="/configuration">
+    Customize bidding algorithms.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Subscribe to our RSS feed at `/changelog/rss` or join the Discord for instant notifications on new releases.
+</Callout>

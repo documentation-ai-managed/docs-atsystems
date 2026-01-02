@@ -1,0 +1,33 @@
+---
+title: Integrate a New Ad Network via API
+description: Guide to quickly connect new ad networks in ATSystems.
+---
+
+## Overview
+
+Connect additional ad networks for more traffic sources.
+
+## Steps
+
+<Steps>
+  <Step title="Open Integrations section">
+    In your ATSystems dashboard, go to <b>Integrations</b>.
+  </Step>
+  <Step title="Click Add Network">
+    Choose the network you want to add from the marketplace or select <b>Custom API</b>.
+  </Step>
+  <Step title="Enter API Details">
+    Fill in network API endpoint, key, and secret. Example:
+    ````json
+    {
+      "api_url": "https://api.network.com/v1/",
+      "key": "YOUR_KEY",
+      "secret": "YOUR_SECRET"
+    }
+    ````
+  </Step>
+  <Step title="Save & Test">
+    Click <b>Save</b>.
+    Use the <b>Test connection</b> button to verify integration.
+  </Step>
+</Steps>

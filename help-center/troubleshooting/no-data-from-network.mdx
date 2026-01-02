@@ -1,0 +1,29 @@
+---
+title: No Data Appears From Network
+description: Fix missing ad data from connected networks.
+---
+
+## Symptoms
+
+- Dashboard shows zero data after integration
+- Sync status stuck on "Pending"
+
+## Possible Causes
+- Wrong API credentials
+- Network API unstable or has rate limits
+
+## Quick Fix
+
+<Steps>
+  <Step title="Check API Credentials">
+    Ensure your API key and secret are correct in <b>Integrations</b>.
+  </Step>
+  <Step title="Test Network Endpoint">
+    ````bash
+    curl -I https://networkapi.example.com/status
+    ````
+  </Step>
+  <Step title="Wait & Retry">
+    Some networks update data hourly. Retry in 30 minutes.
+  </Step>
+</Steps>

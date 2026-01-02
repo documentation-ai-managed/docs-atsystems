@@ -1,0 +1,96 @@
+---
+title: Introduction to ATSystems
+description: Discover ATSystems, a platform for building and operating automated systems to purchase, optimize, and monetize advertising traffic with seamless integrations and data-driven decisions.
+---
+
+## Overview
+
+ATSystems empowers you to build and operate highly automated systems for purchasing, optimizing, and monetizing advertising traffic. Treat traffic as your raw material, advertising networks as external markets with quirky APIs and rules, and focus your value on algorithms, infrastructure, and rapid decision-making. You integrate with dozens of ad networks, normalize their chaotic APIs into a unified model, make data-driven decisions on bids, bundles, deactivations, and reallocations, and automate processes that others handle manually or by intuition.
+
+## Key Features
+
+ATSystems delivers core capabilities that transform ad traffic management.
+
+<Columns cols={3}>
+  <Card title="API Normalization" icon="database" href="#api-normalization">
+    Seamlessly integrate with 50+ ad networks. Convert diverse, inconsistent APIs into a single, predictable data model for effortless querying and control.
+  </Card>
+  <Card title="Data-Driven Decisions" icon="trending-up" href="#decisions">
+    Analyze real-time metrics to set optimal bids, bundle campaigns, disable underperformers, and reallocate budgets dynamically.
+  </Card>
+  <Card title="Full Automation" icon="zap" href="#automation">
+    Eliminate manual workflows. Automate bid adjustments, traffic routing, and optimization based on your custom algorithms.
+  </Card>
+</Columns>
+
+## Benefits for Ad Traffic Management
+
+You gain speed and precision in a competitive landscape. Normalize API chaos to focus on strategy, not integration headaches. Leverage unified data for smarter decisions that boost ROI. Scale operations without proportional headcount increases through automation. ATSystems handles the infrastructure, so you iterate algorithms faster than competitors relying on spreadsheets or gut feel.
+
+<Callout kind="tip">
+  Start small: Test with one ad network integration to see immediate value in normalized data and automated bidding.
+</Callout>
+
+## Quick Start
+
+Get up and running in minutes.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create your account at https://dashboard.example.com/signup. Verify your email to access the dashboard.
+  </Step>
+  <Step title="Get API Key" icon="key">
+    Navigate to Account > API Keys. Generate a new key for production use.
+  </Step>
+  <Step title="Make First Request">
+    Query available ad networks using your key.
+
+    <CodeGroup tabs="JavaScript,Python,cURL">
+      ```javascript
+      const response = await fetch('https://api.example.com/v1/networks', {
+        headers: {
+          'Authorization': `Bearer YOUR_API_KEY`
+        }
+      });
+      const networks = await response.json();
+      console.log(networks);
+      ```
+      ```python
+      import requests
+      response = requests.get(
+        'https://api.example.com/v1/networks',
+        headers={'Authorization': 'Bearer YOUR_API_KEY'}
+      )
+      networks = response.json()
+      print(networks)
+      ```
+      ```bash
+      curl -H "Authorization: Bearer YOUR_API_KEY" \
+        https://api.example.com/v1/networks
+      ```
+    </CodeGroup>
+  </Step>
+</Steps>
+
+## Next Steps
+
+Dive deeper into ATSystems.
+
+<Columns cols={2}>
+  <Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+    Complete your first full campaign setup and launch automated bidding.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your integrations with API keys, OAuth, and webhooks.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference">
+    Explore all endpoints for traffic purchase and optimization.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated with the latest features and improvements.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Questions? Check the [Help Center](/help-center) or contact support@atsystems.com.
+</Callout>

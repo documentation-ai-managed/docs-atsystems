@@ -1,0 +1,184 @@
+---
+title: Getting Started with ATSystems
+description: Set up your ATSystems account and create your first automated ad traffic project in minutes.
+---
+
+## Prerequisites
+
+Before starting, ensure you have:
+
+<Callout kind="info">
+
+- A registered account at [https://dashboard.example.com/signup](https://dashboard.example.com/signup)
+- Your ATSystems `{API_KEY}` from the dashboard settings
+- Access to at least one ad network account (e.g., Google Ads or Facebook Ads)
+
+</Callout>
+
+Review the [account requirements](/introduction#requirements) if needed.
+
+## Create Your Account and Access the Dashboard
+
+Follow these steps to get started quickly.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit [https://dashboard.example.com/signup](https://dashboard.example.com/signup).
+    
+    Fill in your email, company name, and create a strong password.
+    
+    Verify your email via the confirmation link.
+  </Step>
+  <Step title="Generate API Key" icon="key">
+    Log in to [https://dashboard.example.com](https://dashboard.example.com).
+    
+    Navigate to **Settings > API Keys**.
+    
+    Click **Generate New Key** and copy the value (e.g., `ats_atx123yourkeyhere456`).
+  </Step>
+  <Step title="Access Dashboard" icon="monitor">
+    From the dashboard, explore the **Projects** tab.
+    
+    This is where you'll manage traffic optimization.
+  </Step>
+</Steps>
+
+## Create Your First Project
+
+Set up a project to automate ad traffic buying and optimization.
+
+<Steps>
+  <Step title="New Project" icon="plus">
+    In the dashboard, click **New Project**.
+    
+    Enter project name: `My First Traffic Opti`.
+    
+    Select campaign type: **CPC Optimization**.
+  </Step>
+  <Step title="Configure Basics" icon="settings">
+    Set daily budget: `$100`.
+    
+    Target GEO: `US`.
+    
+    Click **Save Project**.
+  </Step>
+</Steps>
+
+Your project ID is now available (e.g., `proj_abc123def456`).
+
+## Connect to Your First Ad Network
+
+ATSystems normalizes APIs from various networks. Start with a simple integration.
+
+<Tabs>
+  <Tab title="Google Ads" icon="google">
+    Use the ATSystems API to link your Google Ads account.
+    
+    <CodeGroup tabs="cURL,JavaScript">
+      ````bash
+      curl -X POST https://api.example.com/v1/projects/proj_abc123def456/networks \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "network": "google_ads",
+          "credentials": {
+            "client_id": "YOUR_GOOGLE_CLIENT_ID",
+            "client_secret": "YOUR_GOOGLE_CLIENT_SECRET"
+          }
+        }'
+      ````
+      ````javascript
+      const response = await fetch('https://api.example.com/v1/projects/proj_abc123def456/networks', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer YOUR_API_KEY',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          network: 'google_ads',
+          credentials: {
+            client_id: 'YOUR_GOOGLE_CLIENT_ID',
+            client_secret: 'YOUR_GOOGLE_CLIENT_SECRET'
+          }
+        })
+      });
+      ````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Facebook Ads" icon="facebook">
+    Connect via OAuth or API token.
+    
+    <ParamField header="Authorization" param-type="string" required="true">
+      Bearer token from Facebook.
+    </ParamField>
+    
+    <CodeGroup tabs="Python,cURL">
+      ````python
+      import requests
+
+      response = requests.post(
+          'https://api.example.com/v1/projects/proj_abc123def456/networks',
+          headers={
+              'Authorization': 'Bearer YOUR_API_KEY',
+              'Content-Type': 'application/json'
+          },
+          json={
+              'network': 'facebook_ads',
+              'access_token': 'YOUR_FB_ACCESS_TOKEN'
+          }
+      )
+      ````
+      ````bash
+      curl -X POST https://api.example.com/v1/projects/proj_abc123def456/networks \
+        -H "Authorization: Bearer YOUR_API_KEY" \
+        -d '{"network": "facebook_ads", "access_token": "YOUR_FB_ACCESS_TOKEN"}'
+      ````
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Test the connection status in your project dashboard. Green indicates success.
+</Callout>
+
+## Run a Basic Optimization Test
+
+Launch a test to see ATSystems in action.
+
+<Steps>
+  <Step title="Start Test Campaign" icon="play">
+    In your project, go to **Optimization > Quick Test**.
+    
+    Set test duration: `1 hour`.
+    
+    Budget: `$10`.
+    
+    Click **Run Test**.
+  </Step>
+  <Step title="Monitor Results" icon="bar-chart-3">
+    Watch real-time metrics: bids adjusted, traffic bought, ROI calculated.
+    
+    ATSystems automatically optimizes bids based on your algorithms.
+  </Step>
+  <Step title="Review Report" icon="file-text">
+    After test, view the report for decisions made (e.g., 15% bid increase on high-converting bundles).
+  </Step>
+</Steps>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your API integrations.
+  </Card>
+  <Card title="Configuration" icon="settings" href="/configuration">
+    Advanced project settings.
+  </Card>
+  <Card title="Optimization Guide" icon="zap" href="/guides/optimization">
+    Scale your traffic automation.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+  Congratulations! You've launched your first ATSystems project. Dive into [full documentation](/introduction) for production scaling.
+</Callout>
